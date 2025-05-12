@@ -73,7 +73,9 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, MethodCallHandler, EventChannel.StreamHandler {
+import io.flutter.plugin.common.PluginRegistry;
+
+public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, MethodCallHandler, EventChannel.StreamHandler, PluginRegistry.ActivityResultListener {
     public static final String LIBRARY_NAME = "ffmpeg-kit-flutter";
     public static final String PLATFORM_NAME = "android";
 
@@ -194,7 +196,6 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
                 flutterPluginBinding.getBinaryMessenger(),
                 flutterPluginBinding.getApplicationContext(),
                 activityPluginBinding.getActivity(),
-                null,
                 activityPluginBinding
         );
     }
